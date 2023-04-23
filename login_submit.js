@@ -8,8 +8,8 @@ window.onload = (event) => {
         const result = document.querySelector(".result");
         console.log(password)
         console.log(username)
-        const url = `https://k0gh2dp2jg.execute-api.ap-northeast-1.amazonaws.com/test/?PassWord=${password.value}&UserName=${username.value}`;
-        const response = await fetch(url, { method: "get" })
+        const url = `https://tvro24petj.execute-api.ap-northeast-1.amazonaws.com/test?PassWord=${password.value}&UserName=${username.value}`;
+        const response = await fetch(url, { method: "get", mode:"" })
         const json = Promise.resolve(response.json()).then(
 	(value) => {
 		console.log(value);
