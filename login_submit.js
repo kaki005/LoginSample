@@ -11,12 +11,13 @@ window.onload = (event) => {
         const url = `https://tvro24petj.execute-api.ap-northeast-1.amazonaws.com/test?PassWord=${password.value}&UserName=${username.value}`;
         const response = await fetch(url, { method: "get" })
         const json = Promise.resolve(response.json()).then(
-	(value) => {
-		console.log(value);
-		result.innerText = value["body"]; 
-	},
-	(value) => {
-	}
-         );
+	        (value) => {
+		        console.log(value);
+		        result.innerText = value["body"]; 
+	        },
+            (value) => {
+                console.log(value);
+	        }
+        );
     });
 }
