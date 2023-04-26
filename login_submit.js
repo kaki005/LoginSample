@@ -8,8 +8,7 @@ window.onload = (event) => {
         const result = document.querySelector(".result");
         console.log(password)
         console.log(username)
-        //const url = `https://k0gh2dp2jg.execute-api.ap-northeast-1.amazonaws.com/test?PassWord=${password.value}&UserName=${username.value}`;
-        const url = new URL("https://k0gh2dp2jg.execute-api.ap-northeast-1.amazonaws.com/");
+        const url = new URL("https://k0gh2dp2jg.execute-api.ap-northeast-1.amazonaws.com/test/");
         url.searchParams.append("PassWord", password.value);
         url.searchParams.append("UserName", username.value);
         const response = await fetch(url.href, { method: "get" })
