@@ -8,9 +8,12 @@ window.onload = (event) => {
         const result = document.querySelector(".result");
         console.log(password)
         console.log(username)
-        const url = `https://k0gh2dp2jg.execute-api.ap-northeast-1.amazonaws.com/test?PassWord=${password.value}&UserName=${username.value}`;
-        const response = await fetch(url, { method: "get" })
-        const json = Promise.resolve(response.text()).then(
+        //const url = `https://k0gh2dp2jg.execute-api.ap-northeast-1.amazonaws.com/test?PassWord=${password.value}&UserName=${username.value}`;
+        const url = new URL("https://k0gh2dp2jg.execute-api.ap-northeast-1.amazonaws.com/");
+        url.searchParams.append("PassWord", password.value);
+        url.searchParams.append("UserName", username.value);
+        const response = await fetch(url.href, { method: "get" })
+        Promise.resolve(response.text()).then(
 	        (value) => {
 		        console.log(value);
 		        result.innerText = value; 
